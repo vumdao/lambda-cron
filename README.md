@@ -25,7 +25,7 @@
 ```
 
 ### 🚀 **[Create the functions in app.py](#-Create-the-functions-in-app.py)**
-[app,py]()
+[app,py](https://github.com/vumdao/lambda-cron/blob/master/app.py)
 ```
 from datetime import datetime
 from chalice import Chalice
@@ -38,7 +38,7 @@ app.debug = True
 #@app.schedule('cron(0 18 ? * MON-FRI *)')
 @app.schedule('cron(* * ? * * *)')
 def cron_tab(event):
-    print(f"{datetime.now()}:I'm running!")
+    print(f"{datetime.now()}: I'm running!")
 ```
 
 ### 🚀 **[Config lambda fuction attributes](#-Config-lambda-fuction-attributes)**
@@ -66,7 +66,7 @@ Resources deployed:
   - Lambda ARN: arn:aws:lambda:ap-northeast-2:111111111111:function:lambda-cron-dev-cron_tab
 ```
 
-- Note: Chalice auto create IAM role `lambda-cron-dev` base on the need of the function, we can disable by adding `"manage_iam_role": false` but you must provide the IAM ARN in config.json eg. ` "iam_role_arn": "arn:aws:iam::111111111111:role/lambda-cron-dev"`
+- Note: Chalice auto create IAM role `lambda-cron-dev` base on the need of the function, we can disable by adding `"manage_iam_role": false` but you must provide the IAM ARN in `config.json` eg. ` "iam_role_arn": "arn:aws:iam::111111111111:role/lambda-cron-dev"`
 
 ### 🚀 **[Check result](#-Check-result)**
 - Lambda function with Event Bridge trigger
